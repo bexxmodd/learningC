@@ -15,3 +15,13 @@ A character written between single quotes represents an integer value equal to t
 if a input is a digit (which can be checked by `if (c >= '0' && c <= '9')`) its numberic value is `c-'0'`
 
 Since `main` is a function like any other, it may return a value to its caller, which is in effect the environment inwhich the program was executed. Typically, a return value of zero implies normal termination; non-zero values signal unusual or erroneous termination conditions.
+
+in C all function arguments are passed _by value_. This means that the called function is given the values of its arguments in temporary variables rather than the originals.
+
+When argument is passed to the function, whatever is done to that argument inside the function has no effect of the arguments that function was originally called with.
+
+It is possible to arrange for a function to modify a variable in a calling routine.
+
+However, there is no copying of array elements. By subscripting this value, the function can access and alter any arguments of the array.
+
+String is stored as an array of characters containing the characters in the string and terminated with a `\0` to mark the end.
