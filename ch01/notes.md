@@ -25,3 +25,8 @@ It is possible to arrange for a function to modify a variable in a calling routi
 However, there is no copying of array elements. By subscripting this value, the function can access and alter any arguments of the array.
 
 String is stored as an array of characters containing the characters in the string and terminated with a `\0` to mark the end.
+
+A common practice is to place definitions of all external variables at the beginning of the source file, and then omit all extern declarations.
+
+If the program is in several source files, and a variable is defined in _file1_ and used in _file2_ and _file3_, then extern declarations are needed in _file2_ and _file3_ to connect the occurrences of the variable. The usual practice is to collect extern declarations of variables and functions in a separate file, historically called a header, that is included by `#include` at the front of each source file. The suffix `.h` is conventional for header names.
+

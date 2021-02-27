@@ -1,4 +1,5 @@
 #include <stdio.h>
+
 #define MAXLINE 100
 
 int getLines(char s[], int lim);
@@ -17,7 +18,7 @@ int main()
     return 0;
 }
 
-/* getline: read a line into s, return length */
+/* getlines: read a line into s, return length */
 int getLines(char s[], int lim)
 {
     int c, i;
@@ -34,11 +35,10 @@ int getLines(char s[], int lim)
 void reverse(char s[], int len)
 {
     int size = len - 1;
-    char reversed[size];
+    char reversed[len];
 
-    for (int i = 0; i < len; i++) {
+    for (int i = 0; i < len; i++)
         reversed[i] = s[size--];
-    }
 
     int i;
     i = 0;
