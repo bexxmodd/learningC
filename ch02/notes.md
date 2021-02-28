@@ -34,3 +34,19 @@ Enumerations provide a convenient way to associate constant values with names, a
 > Automatic variables for which is no explicit initializer have undefined (i.e., garbage) values.
 
 > The const declarati on can also be used with array arguments, to indicate that the function does not change that array.
+
+When an opeartor has operands of different types, they are converted to a common type according to following rules:
+
+- In general the only automatic covnersions are for narrow operan into wider without losing information, such as converting an `int` to `float`:
+    - expression `f + i`
+- `char` is a small integer so they can be used in arithmetic expressions.
+
+The standard header `<ctype.h>` defines a family of functions that provide tests and converions that are independent of character set.
+
+Explicit type conversions can be forced (_coerced_) in any expression, with a unary operator call a `cast`: _(type name) expression_.
+
+```
+int n = 49;
+sqrt((double) n); // converting n to double as that's what sqrt() expects as argument
+```
+
