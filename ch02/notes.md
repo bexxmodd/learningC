@@ -50,3 +50,10 @@ int n = 49;
 sqrt((double) n); // converting n to double as that's what sqrt() expects as argument
 ```
 
+The expression `++n` increments `n` _before_ its value is used, while `n++` increments `n` _after_ its value has been used.
+
+The _conditional expression_ can be written with the ternary operator `?:` that looks like this: `expr1 ? expr2 : expr3`. The expression `expr1` is evaluated first. If it is true, then the expression `expr2` is evaluated, and that is a value of the conditional expression. Otherwise `expr3` is evaluated, and that is the value. Example:
+
+```
+z = (a > b) ? a : b; // z = max(a, b)
+```
