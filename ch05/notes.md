@@ -16,3 +16,33 @@ The unary operator `*` is the _dereferencing_ operator; when applied to a pointe
 You should also note the implication that a pointer is constrained to point to a particular kind of object: every pointer points to a specific data type. (There is one exception: a pointer to `void` is used to hold any type of pointer but cannot be dereferenced itself).
 
 `(*ip)++` The parentheses are necessary in this last example; without them, the expression would increment ip instead of what it points to, because unary operators like * and ++ associate right to left.
+
+The way to swap two `int` values will be for the calling program to pass _pointers_ to the values to be swapped. For example:
+
+```
+/* interchange *px and *py */
+void swap(int *px, int *py)
+{
+    int tmp;
+
+    tmp = *px;
+    *px = *py;
+    *py = tmp;
+}
+```
+
+When an array name is passed to a function, what is passed is the location of the initial element. Within the called function, this argument is a local variable, and so an array name parameter is a pointer, that is, a variable containing an address.
+
+If `p` is a pointer to some element of an array, then `p++` increments `p` to point to the next element, and `p+=i` increments it to point `i` elements beyond where it currently does.
+
+- `alloc(n)` , returns a pointer to `n` consecutive character positions, which can be used by the caller of alloc for storing characters.
+- `afree(p)` , releases the storage thus acquired so it can be re-used later.
+- The routines are _rudimentary_ because the calls to `afree` must be made in the opposite order to the calls made on `alloc`.
+    - Storaged managed by them is a stack (LIFO).
+- The standard library provides analogous functions called `malloc` and `free` that have no such restrictions.
+
+Pointers may be compared. If `p` and `q` point to members of the same array, then relations like == , != , < , >= , etc., work properly. Foe xample if `p < q` is `true` this means that `p` points to the earlier element of the array than `q` does.
+
+A pointer and an integer may be added or subtracted: `p + n` means that the adress of the `n`-th object beyond the one `p` currently points to. This is true regardless of the kind of object `p` points to; n is scaled according to the size of the objects `p` points to, which is determined by the declaration of `p`. If an `int` is four bytes, for example, the `int` will be scaled by four.
+
+Pointer subtraction is also valid: if `p` and `q` point to elements of the same array, and `p < q` , then `q-p+1` is the number of elements from `p` to `q` inclusive.
