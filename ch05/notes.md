@@ -46,3 +46,9 @@ Pointers may be compared. If `p` and `q` point to members of the same array, the
 A pointer and an integer may be added or subtracted: `p + n` means that the adress of the `n`-th object beyond the one `p` currently points to. This is true regardless of the kind of object `p` points to; n is scaled according to the size of the objects `p` points to, which is determined by the declaration of `p`. If an `int` is four bytes, for example, the `int` will be scaled by four.
 
 Pointer subtraction is also valid: if `p` and `q` point to elements of the same array, and `p < q` , then `q-p+1` is the number of elements from `p` to `q` inclusive.
+
+## Character Pointers and Functions
+
+A _string constant_ written "Hello, World!" is an array of characters, which is terminated with the null character `'\0'` so the program finds the end. The length is thus one more than the number or characters between the double quotes.
+
+- C does not provide any operators for processing an entire string of characters as a unit.
