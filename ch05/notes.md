@@ -52,3 +52,12 @@ Pointer subtraction is also valid: if `p` and `q` point to elements of the same 
 A _string constant_ written "Hello, World!" is an array of characters, which is terminated with the null character `'\0'` so the program finds the end. The length is thus one more than the number or characters between the double quotes.
 
 - C does not provide any operators for processing an entire string of characters as a unit.
+
+There is an important difference between these definitions:
+
+```
+char amessage[] = "now is the time"; /* an array */
+char *pmessage = "now is the time"; /* a pointer */
+```
+
+- If `s` and `t` are strings `s=t` will copy the pointer but not the characters.
