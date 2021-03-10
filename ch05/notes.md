@@ -15,7 +15,7 @@ The unary operator `*` is the _dereferencing_ operator; when applied to a pointe
 
 You should also note the implication that a pointer is constrained to point to a particular kind of object: every pointer points to a specific data type. (There is one exception: a pointer to `void` is used to hold any type of pointer but cannot be dereferenced itself).
 
-`(*ip)++` The parentheses are necessary in this last example; without them, the expression would increment ip instead of what it points to, because unary operators like * and ++ associate right to left.
+`(*ip)++` The parentheses are necessary in this last example; without them, the expression would increment `ip` instead of what it points to, because unary operators like `*` and `++` associate right to left.
 
 The way to swap two `int` values will be for the calling program to pass _pointers_ to the values to be swapped. For example:
 
@@ -61,3 +61,7 @@ char *pmessage = "now is the time"; /* a pointer */
 ```
 
 - If `s` and `t` are strings `s=t` will copy the pointer but not the characters.
+
+## Pointer Arrays
+
+Since pointers are variables themselves, they can be stored in arrays just as other variables can. For example: `char *lineptr[MAXLINES]` says that `lineptr` is an array of `MAXLINES` elements, each element of which is a pointer to a `char`. That is, `lineptr[i]` is a character pointer, and `*lineptr[i]` is the character it points to, the first character of the `i`-th saved text line.
