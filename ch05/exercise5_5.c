@@ -1,7 +1,7 @@
 #include <stdio.h>
 #define MAXLINE 1000
 
-void getLine(char *s, int max);
+int getLine(char *s, int max);
 
 int main()
 {
@@ -11,14 +11,17 @@ int main()
     return 0;
 }
 
-void getLine(char *s, int lim)
+int getLine(char *s, int lim)
 {
-    int c;
+    int c, len;
 
     while (--lim > 0 && (c=getchar()) != EOF && c != '\n')
         *s++ = c;
+        len++;
     if (c == '\n')
         *s++ = c;
+        len++;
     *s = '\0';
+    return len;
 }
 
