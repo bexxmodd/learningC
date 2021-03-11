@@ -65,3 +65,7 @@ char *pmessage = "now is the time"; /* a pointer */
 ## Pointer Arrays
 
 Since pointers are variables themselves, they can be stored in arrays just as other variables can. For example: `char *lineptr[MAXLINES]` says that `lineptr` is an array of `MAXLINES` elements, each element of which is a pointer to a `char`. That is, `lineptr[i]` is a character pointer, and `*lineptr[i]` is the character it points to, the first character of the `i`-th saved text line.
+
+## 2D Arrays and Pointers
+
+Thus if the 2d-array with 2 rows and 13 columns `daytab` is to be passed to a function `f` , the declaration of f would be: `f(int daytab[2][13]) { ... }` or it could be `f(int daytab[][13]) { ... }`. ince the number of rows is irrelevant, or it could be `f(int (*daytab)[13]) { ... }` which says that the parameter is a pointer to an array of 13 integers. The parentheses are necessary since brackets [] have higher precedence than *.
