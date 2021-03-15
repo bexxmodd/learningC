@@ -69,3 +69,12 @@ Since pointers are variables themselves, they can be stored in arrays just as ot
 ## 2D Arrays and Pointers
 
 Thus if the 2d-array with 2 rows and 13 columns `daytab` is to be passed to a function `f` , the declaration of f would be: `f(int daytab[2][13]) { ... }` or it could be `f(int daytab[][13]) { ... }`. ince the number of rows is irrelevant, or it could be `f(int (*daytab)[13]) { ... }` which says that the parameter is a pointer to an array of 13 integers. The parentheses are necessary since brackets [] have higher precedence than *.
+
+## Command Line
+
+`main` is called with two arguments: 
+
+1. (conventionally called `argc` , for argument count) is the number of command-line arguments the program was invoked with.
+2. ( `argv` , for argument vector) is a pointer to an array of character strings that contain the arguments, one per string.
+
+for C programs on UNIX systems is that an argument that begins with aminus sign introduces an optional flag or parameter. If we choose `-x` (for "except") to signal the inversion, and `-n` ("number") to request line numbering, then the command `find -x -npattern` will print each line that doesn't match the pattern, preceded by its line number. Optional arguments should be permitted in any order, and the rest of the program should be independent of the number of arguments that we present.
