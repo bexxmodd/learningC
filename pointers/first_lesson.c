@@ -19,7 +19,7 @@ int main()
     printf("%d\n", &a); // will print the memory address of where `a` is stored
 
     printf("%d\n", a);
-    *p = 13; // dereferencing - value at address being pointed by `p` is equal 12
+    *p = 13; // dereferencing - value at address being pointed by `p` is equal 13
     printf("%d\n", a); // value will be now changed
 
 
