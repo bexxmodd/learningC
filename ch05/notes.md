@@ -78,3 +78,7 @@ Thus if the 2d-array with 2 rows and 13 columns `daytab` is to be passed to a fu
 2. ( `argv` , for argument vector) is a pointer to an array of character strings that contain the arguments, one per string.
 
 for C programs on UNIX systems is that an argument that begins with aminus sign introduces an optional flag or parameter. If we choose `-x` (for "except") to signal the inversion, and `-n` ("number") to request line numbering, then the command `find -x -npattern` will print each line that doesn't match the pattern, preceded by its line number. Optional arguments should be permitted in any order, and the rest of the program should be independent of the number of arguments that we present.
+
+## Pointers to Functions
+
+Function itself is not a variable but it's possible to define pointers to functions, which can be assigned, p[laced in arrays, passed to functions, returned by functions etc.
