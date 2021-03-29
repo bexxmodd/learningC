@@ -37,7 +37,9 @@ ht* ht_create(void)
 void ht_destroy(ht* table)
 {
     // first free allocated keys
-    for (size_t i = 0; i< table->capacity; i++)
+    size_t i;
+    
+    for (i = 0; i < table->capacity; i++)
         if (table->entries[i].key != NULL)
             free(table->entries[i].key);
     
