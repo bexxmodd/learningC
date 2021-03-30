@@ -3,46 +3,39 @@
 
 #define INITIAL_CAPACITY 4
 
-typedef struct {
-    int** data;
-    unsigned int length;
-    unsigned int used;
+typedef struct arraylist {
+    int* data; // array that will hold int data
+    unsigned int length; // total length of a struct
+    unsigned int used; // number of spots filled
 } arraylist;
 
-arraylist* constructor(int** data, int size);
+arraylist* constructor(int size);
 
 int main()
 {
-    int* arr = (int*) calloc(sizeof(int), 5);
-    for (int i = 0; i < 5; i++) {
-        arr[i] = 2;
-    }
-
-
-    int** ptr_to_arr = &arr;
     arraylist* list;
-    list = constructor(ptr_to_arr, 5);
+    list = constructor(5);
+
+    for (int i = 0; i < 5; i++)
+        list->data[i] = i*i;
 
     printf("Size of list: %d\n", list->used);
-    printf("Capacity list: %d\n", list->length);
-    ///////////////////////////////////
+    printf("Capacity of list: %d\n", list->length);
     for (int i = 0; i < 5; i++)
-        printf("Pointer to: %p\t", list->data[i]);
-    ///////////////////////////////////
+        printf("%d, ", list->data[i]);
 }
 
-arraylist* constructor(int** data, int size)
+arraylist* constructor(int size)
 {
     arraylist* list;
     list = (arraylist*) malloc(sizeof(arraylist));
-    list->data = data;
-    list->used = size;
+    int* arr = (int*) calloc(sizeof(int), size);
 
-    int len = INITIAL_CAPACITY;
+    list->data = arr;
+    list->used = 0;
+    list->length = size;
 
-    while (len <= size)
-        len *= 2;
-
-    list->length = len;
     return list;
 }
+
+
