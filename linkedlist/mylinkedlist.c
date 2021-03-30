@@ -7,7 +7,7 @@ typedef struct node {
 } node;
 
 int append(node* head, int val);
-int push(node* head, int val);
+int push(node** head, int val);
 void print_llist(node* head);
 
 int main()
@@ -20,6 +20,8 @@ int main()
 
     append(head, 3);
     append(head, 5);
+    push(&head, 98);
+    push(&head, 99);
 
     print_llist(head);
 }
@@ -50,12 +52,14 @@ int append(node* head, int val)
     return 0;
 }
 
-int push(node* head, int val)
+int push(node** head, int val)
 {
-    node* new_node = (node*) malloc(sizeof(node));
+    node * new_node;/
+    new_node = (node *) malloc(sizeof(node));
+
     new_node->value = val;
-    new_node->next = head;
-    head = new_node;
+    new_node->next = *head;
+    *head = new_node;
 
     return 0;
 }
