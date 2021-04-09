@@ -2,11 +2,14 @@
 
 int main()
 {
-	int a = 5 ;
-	int* b_ptr = &a ;	
-	int** c_ptr = &b_ptr ;
-    *b_ptr = 6; // a = 6
-    int* d_ptr = b_ptr;
-    *d_ptr = 8; // a = 8
-	print (**c_ptr)  ;  
+	int* arr = calloc(sizeof(int), 5);
+	for (int i = 0; i < 5; i++)
+		arr[i] = i * i;
+	int* ptr = malloc(sizeof(int));
+	int** ptr_to_ptr;
+	ptr = 2;
+	ptr_to_ptr = &ptr;
+
+
+	return 0;
 }

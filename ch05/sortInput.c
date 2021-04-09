@@ -24,6 +24,7 @@ int main()
         return 1;
     }
 }
+
 #define MAXLEN 1000 // max length of any input
 int getline(char *, int);
 char *alloc(int);
