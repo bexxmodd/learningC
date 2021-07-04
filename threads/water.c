@@ -27,7 +27,9 @@ void *oxygenCode()
         hydrogen -= 2;
         sem_post(&oxyQueue);
         oxygen--;
-    } else pthread_mutex_unlock(&mutex);
+    }
+    else
+        pthread_mutex_unlock(&mutex);
 
     sem_wait(&oxyQueue);
     bond();
@@ -39,13 +41,16 @@ void *hydrogenCode()
 {
     pthread_mutex_lock(&mutex);
     hydrogen++;
-    if (hydrogen >= 2 && oxygen >= 1) {
+    if (hydrogen >= 2 && oxygen >= 1)
+    {
         sem_post(&hydroQueue);
         sem_post(&hydroQueue);
         hydrogen -= 2;
         sem_post(&oxyQueue);
         oxygen--;
-    } else pthread_mutex_unlock(&mutex);
+    }
+    else
+        pthread_mutex_unlock(&mutex);
 
     sem_wait(&hydroQueue);
     pthread_barrier_wait(&barrier);
@@ -78,7 +83,7 @@ int main()
         }
         for (int j = 0; j < n; j++)
             pthread_join(bonds_thr[j], NULL);
-        
+
         printf("%d H20\n", bonds);
     }
     pthread_barrier_destroy(&barrier);
