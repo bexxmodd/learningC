@@ -71,7 +71,7 @@ int main()
     {
         for (int j = 0; j < n; j++)
         {
-            if (i % 3 == 0)
+            if (j % 3 == 0)
                 pthread_create(&bonds_thr[j], NULL, oxygenCode, NULL);
             else
                 pthread_create(&bonds_thr[j], NULL, hydrogenCode, NULL);
@@ -81,4 +81,5 @@ int main()
         
         printf("%d H20\n", bonds);
     }
+    pthread_barrier_destroy(&barrier);
 }
