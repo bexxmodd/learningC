@@ -4,6 +4,8 @@
 
 #define NUM_THREADS 2
 
+pthread_mutex_t lock = PTHREAD_MUTEX_INITIALIZER;
+
 /* create thread argument for thr_func() */
 typedef struct _thread_data
 {
