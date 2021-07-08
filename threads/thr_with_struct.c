@@ -108,5 +108,6 @@ int main(void)
 
 	printf("\nmain: now dying... <Dramatic!> Farewell!\n");
 	pthread_exit(NULL);
+	return 0;
 }
 
